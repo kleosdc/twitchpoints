@@ -1,0 +1,195 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/*
+Style navbar
+*/
+  #navbar ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(101, 66, 165, 0.9);
+    border-radius: 10px;
+  }
+  
+  #navbar li {
+    float: left;
+    border-right:1px solid #bbb;
+  }
+  
+  #navbar li:last-child {
+    border-right: none;
+  }
+  
+  #navbar li a {
+    display: block;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  #navbar li a:hover:not(.active) {
+    background-color:rgba(101, 66, 165, 0.3);
+  }
+  
+  #navbar .active {
+    background-color:rgba(101, 66, 165, 0.9);
+    color: rgb(255, 255, 255);
+  }
+
+  /*
+  Style points display
+  */
+  #pointsDisplay h1 {
+      text-align: center;
+  }
+
+  .panelMain {
+    margin: auto;
+    width: 70%;
+    position: relative;
+    top: 20px;
+  }
+
+  .totalMenu {
+    margin: auto;
+    top: 50px;
+    position: relative;
+    text-align: center;
+  }
+
+  .totalMenu h5 {
+    padding: 5px 10px 5px 5px;
+  }
+
+  #totalHours{
+    color: rgba(0, 0, 0, 0.8);
+    display: inline-flex;
+  }
+
+  #checkBoxSub {
+    margin: auto;
+    padding: 0px 20px 30px 20px;
+    position: relative;
+    text-align: center;
+  }
+
+  /*
+  Style slider
+  */
+  .slidecontainer {
+    width: 100%;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-moz-range-thumb:hover {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: rgba(101, 66, 165, 0.9);
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: rgba(101, 66, 165, 0.9);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  /* While thumb is clicked, keep the width and height */
+  .slider::-moz-range-thumb:active {
+    width: 25px;
+    height: 25px;
+  }
+
+/*
+Style for points input
+*/
+* {
+    box-sizing: border-box;
+  }
+
+  div.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+    border-radius: 15px 0px 0px 15px;
+  }
+  
+  div.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: rgba(101, 66, 165);
+    opacity: 0.7;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0px 15px 15px 0;
+  }
+  
+  div.example button:hover {
+    opacity: 1;
+  }
+  
+  div.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+/* 
+Style footer for index.html page
+*/
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(101, 66, 165, 0.9);
+    color: white;
+    text-align: center;
+ }

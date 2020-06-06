@@ -1,0 +1,15 @@
+120 - 240 // 5 minutes points
+200 - 400 // 15 minutes points
+------------------------------
+320 - 640 // 1 hour
+
+300 // Streak 2
+350 // Streak 3
+400 // Streak 4
+450 // Streak 5+
+
+350 // 1st Cheer - 30 days
+500 // 1st Subscription - 30 days
+
+250 // Raid Participation
+300 // Follow, awarded once

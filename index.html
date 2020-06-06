@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch Points Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div id="navbar">
+        <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <!--<li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li> -->
+            <li style="float:right"><a id="toggleModal" href="#about">How?</a></li>
+        </ul>
+    </div>
+
+    <div id="pointsDisplay">
+        <h1 id="points">0 points</h1>
+        <div id="checkBoxSub">
+            <input type="checkbox" id="subbedCheck" name="subbedCheck" value="sub">
+            <label for="subbedCheck" id="subbedLabel">Not a sub</label>
+        </div>
+    </div>
+
+    <div class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+        <input id="inputValue" type="text" placeholder="Example: 25000" name="search2">
+        <button id="buttonSubmit" type="submit"><i class="fa fa-calculator"></i></button>
+    </div>
+
+    <!--
+    <div class="w3-container panelMain">
+        <div class="slidecontainer">
+            <p>Custom range slider:</p>
+            <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        </div>
+
+        <div class="w3-row w3-border">
+            <div class="w3-third w3-container w3-red">
+            <h2>w3-third</h2>  
+            <p>The w3-third class uses 33% of the parent container.</p>
+            <p>On screens smaller than 601 pixels it resizes to full screen.</p>
+            </div>
+            <div class="w3-third w3-container">
+            <h2>w3-third</h2>
+            </div>
+            <div class="w3-third w3-container">
+            <h2>w3-third</h2>
+            </div>
+        </div>
+    </div> -->
+    <div class="totalMenu">
+        <h2 id="totalHours"></h2>
+    </div>
+    
+
+    <div class="footer">
+        <p>Viewer made Twitch Points Calculator</p>
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>How it works?</h1>
+            <p>All you need to do is mark if you are a subscriber or not, not a subscriber by default, and enter the amount of points you have on your favorite channel. <br/>Then click on the button and it will show how long it took you go gain those points. <br/><br/>The approx. hours <b>DO NOT</b> account for raid, monthly cheers/subscription, Follow (Awarded once), and Daily Streak points because they can not be verified.<br/><br/>In an hour you can gain anywhere between <b>320 points</b> to <b>640 points</b> depending on your subscription status.<br/>Every <b>5 minutes</b> you are given <b>10 points</b> as a <i>Regular</i> viewer. If you are <i>Subscriber</i> you get <b>20 points</b><br/>Every <b>15 minutes</b> there is a click-to-claim icon that pops-up in the chat-layout. Upon clicking it, <i>Regular</i> viewer gets <b>50 points</b> and <i>Subscriber</i> gets <b>100 points</b>.</p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/animation.js"></script>
+</body>
+</html>
