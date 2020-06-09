@@ -59,11 +59,20 @@ Style navbar
       text-align: center;
   }
 
+  #checkBoxOptions {
+    display: block;
+  }
+
+  .spacingOut {
+    padding-bottom: 10px;
+  }
+
   .panelMain {
     margin: auto;
     width: 70%;
     position: relative;
     top: 20px;
+    text-align: center;
   }
 
   .totalMenu {
@@ -88,6 +97,45 @@ Style navbar
     position: relative;
     text-align: center;
   }
+
+  #earnedPoints {
+    margin: auto;
+    position: relative;
+    text-align: center;
+  }
+
+  #earnedPoints p{
+    font-size: 10px;
+  }
+
+  .inLineDisplay{
+    margin: 0;
+    display: block ruby;
+    padding-bottom: 30px;
+  }
+
+ .inProgress {
+  background: rgba(196, 55, 45, 0.7);
+  border-radius: 4px;
+  padding: 10px;
+}
+.resetPadding {
+  padding: 10px;
+}
+
+.buttons {
+  background-color: #008CBA; /* Blue */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
   /*
   Style slider
