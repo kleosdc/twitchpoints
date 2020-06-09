@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch Points Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div id="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a class="active" href="goalpoints.html">Monthly Points</a></li>
+            <li style="float:right"><a id="toggleModal" href="#about">How?</a></li>
+        </ul>
+    </div>
+
+    <div id="pointsDisplay">
+        <h1 id="points">9600</h1>
+    </div>
+    <div id="earnedPoints">
+        <p id="msp">None Monthly Subscriber points</p>
+        <p id="mcp">None Monthly Cheer points</p>
+        <p id="fp">None Follower points</p>
+        <p id="rp">None Raid points</p>
+        <p id="wsp">None Watch Streak points</p>
+        <p id="ehp">None Earned Hourly points</p>
+    </div>
+
+    <div class="w3-container panelMain">
+
+        <div class="w3-row w3-border">
+            <div class="w3-third w3-container">
+            <h2>How many hours a day?</h2>
+            <div id="hoursDay" class="inLineDisplay">
+                <button id="descrements">-</button>
+                <h3 id="hoursADay">1</h3>
+                <button id="increments">+</button>
+            </div>
+            <div class="w3-light-grey w3-round-xlarge">
+                <div id="hoursPerc" class="w3-container w3-blue w3-round-xlarge">0%</div>
+            </div>
+            <!-- <div class="resetPadding">
+                <button id="resetHours" class="buttons">Reset hours</button>
+            </div> -->
+
+            </div>
+            <div class="w3-third w3-container">
+            <h2>Options</h2>
+            <div id="checkBoxOptions">
+                <div>
+                    <input type="checkbox" id="subbedCheck" name="subbedCheck" value="sub">
+                    <label for="subbedCheck" id="subbedLabel">Not a Subscriber</label>
+                </div>
+                
+                <div>
+                    <input type="checkbox" id="monthlySub" name="monthlySub" value="monSub">
+                    <label for="monthlySub" id="monthlySubLabel">Not a Monthly Subscriber</label>
+                </div>
+                
+                <div>
+                    <input type="checkbox" id="monthlyCheer" name="monthlyCheer" value="monCheer">
+                    <label for="monthlyCheer" id="monthlyCheerLabel">Not a Monthly Cheer</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="followCheck" name="followCheck" value="fwCheck">
+                    <label for="followCheck" id="followLabel">Not a Follower</label>
+                </div>
+                
+            </div>
+            </div>
+            <div class="w3-third w3-container">
+            <h2>Miscellaneous</h2> 
+            <div class="">
+                <h4 id="raidParticipated">0 Raid participations in a month</h4>
+                    <div id="raidAmounts" class="inLineDisplay">
+                        <button id="descrementsRaid">-</button>
+                        <h3 id="raidsCount">0</h3>
+                        <button id="incrementsRaid">+</button>
+                    </div>
+                    <div class="w3-light-grey w3-round-xlarge">
+                        <div id="raidsMonths" class="w3-container w3-blue w3-round-xlarge">0%</div>
+                    </div>
+                    <!-- <div class="resetPadding">
+                        <button id="resetRaids" class="buttons">Reset raids</button>
+                    </div> -->
+            </div>
+                <h4>Watch Streaks</h4>
+                <div class="dailyStreaks">
+                    <div class="spacingOut">
+                        <label for="streak2x">Watch x2</label>
+                        <input type="radio" name="streak" id="streak2x">
+                    </div>
+                    <div class="spacingOut">
+                        <label for="streak3x">Watch x3</label>
+                        <input type="radio" name="streak" id="streak3x">
+                    </div>
+                    <div class="spacingOut">
+                        <label for="streak4x">Watch x4</label>
+                        <input type="radio" name="streak" id="streak4x">
+                    </div>
+                    <div class="spacingOut">
+                        <label for="streak5x">Watch x5</label>
+                        <input type="radio" name="streak" id="streak5x">
+                    </div>
+                    <!-- <div class="resetPadding">
+                        <button id="resetStreaks" class="buttons">Reset streaks</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="footer">
+        <p>Viewer made Twitch Points Calculator</p>
+    </div>
+
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>How it works?</h1>
+            <p><h4>How many hours a day?</h4><br>This takes account for how many hours a day are you watching your favorite livestream. It then takes the amount of hours you watch a livestream and multiplies it by the total amount of points you can gain in an hour (320/640, depending on your subscription status), it then multiplies that amount by 30 (days in a month).<br><h4>Options</h4><br><i>Not a Subscriber</i> - This is the deciding factor of whether you are a sub or not.<br><i>Not a Monthly Subscriber</i> - Every month when you sub to a channel you get <b>500 points</b>.<br><i>Not a Monthly Cheer</i> - Every month when you give cheers to a channel you get <b>350 points</b>.<br><i>Not a Follower</i> - One time offer, when you follow a channel you get <b>300 points</b> (One-time).<br> <h4>Miscellaneous</h4><br><i>Raids</i> - Every raid you attend you get <b>250 points</b>.<br><br> <i>Watch Streaks</i> - a viewer returns for 'x' amount of consecutive streams<br> Watch Streak x2 - <b>300 points</b><br> Watch Streak x3 - <b>350 points</b><br> Watch Streak x4 - <b>400 points</b><br> Watch Streak x5 - <b>450 points</b><br><br></p>
+            <p>Learn more about Twitch Channel Points <a href="https://help.twitch.tv/s/article/channel-points-guide?language=en_US" target="_blank">here</a></p>
+        </div>
+    </div>
+
+    <script src="js/goal_app.js"></script>
+    <script src="js/animation.js"></script>
+</body>
+</html>
