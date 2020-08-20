@@ -3,10 +3,20 @@ const buttonSubmit = document.getElementById('buttonSubmit');
 const points = document.getElementById('points');
 const totalHours = document.getElementById('totalHours');
 const subbedLabel = document.getElementById('subbedLabel');
+
+const subBox = document.getElementById('checkBoxSub');
+
 const subbedCheck = document.getElementById('subbedCheck');
+
+const tierOne = document.getElementById('tierOne');
+const tierTwo = document.getElementById('tierTwo');
+const tierThree = document.getElementById('tierThree');
+
 
 let isSub = 1;
 let displayPointsHolder = 0;
+
+subbedCheck.checked = true;
 
 
 function calculateHours(value, isSub) {
@@ -76,18 +86,56 @@ buttonSubmit.addEventListener('click', () => {
     calcFunc(displayPointsHolder, isSub);
 });
 
-subbedCheck.addEventListener('change', () => {
-    if (subbedCheck.checked) {
-        subbedLabel.textContent = 'subbed';
-        isSub = 2;
-        if (displayPointsHolder > 0 ){
-            calcFunc(displayPointsHolder, isSub);
-        }
-    } else {
-        subbedLabel.textContent = 'Not a sub';
-        isSub = 1;
-        if (displayPointsHolder > 0 ){
-            calcFunc(displayPointsHolder, isSub);
-        }
+function isOneChecked() {
+    // All <input> tags...
+    var chx = document.getElementsByTagName('input');
+    for (var i=0; i<chx.length; i++) {
+      // If you have more than one radio group, also check the name attribute
+      // for the one you want as in && chx[i].name == 'choose'
+      // Return true from the function on first match of a checked item
+      if (chx[i].type == 'radio' && chx[i].checked) {
+        return true;
+      } 
     }
+    // End of the loop, return false
+    return false;
+}
+
+subBox.addEventListener('change', () => {
+    
+
+    // if (subbedCheck.checked) {
+    //     subbedLabel.textContent = 'subbed';
+    //     isSub = 2;
+    //     if (displayPointsHolder > 0 ){
+    //         calcFunc(displayPointsHolder, isSub);
+    //     }
+    // } else {
+    //     subbedLabel.textContent = 'Not a sub';
+    //     isSub = 1;
+    //     if (displayPointsHolder > 0 ){
+    //         calcFunc(displayPointsHolder, isSub);
+    //     }
+    // }
+    //console.log(tierOne.checked);
+    if (subbedCheck.checked) {
+        // console.log(isOneChecked());
+        // console.log('unsubbed');
+        isSub = 1;
+    } else if (tierOne.checked) {
+        // console.log(isOneChecked());
+        // console.log('tier 1');
+        isSub = 1.2;
+    } else if (tierTwo.checked) {
+        // console.log(isOneChecked());
+        // console.log('tier 2');
+        isSub = 1.4;
+    } else if (tierThree.checked) {
+        // console.log(isOneChecked());
+        // console.log('tier 3');
+        isSub = 2;
+    }
+    calcFunc(displayPointsHolder, isSub);
+    console.log(displayPointsHolder);
+    
 });
