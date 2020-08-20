@@ -1,5 +1,6 @@
 const subbedLabel = document.getElementById('subbedLabel');
 const subbedCheck = document.getElementById('subbedCheck');
+const subBox = document.getElementById('checkBoxSub');
 
 const monthlySubLabel = document.getElementById('monthlySubLabel');
 const monthlySub = document.getElementById('monthlySub');
@@ -55,9 +56,10 @@ let totalMonthlyCheerPoints = 0;
 let totalFollowPoints = 0;
 let totalRaidPoints = 0;
 
-let isSub = 1; // x2
+let isSub = 1; // x1.2, x1.4, x2
 let isSubPoints = 9600;
 let isTruePoints = 9600;
+let staticPoints = 9600;
 let isMonthlySub = 0; // 500
 let isMonthlyCheer = 0; // 350
 let isFollower = 0; // 300
@@ -69,7 +71,7 @@ let pointsStreakEarned = 0;
 
 
 
-subbedCheck.checked = false;
+subbedCheck.checked = true;
 monthlySub.checked = false;
 monthlyCheer.checked = false;
 followCheck.checked = false;
@@ -146,7 +148,7 @@ function buttonRecord(e, updateContent, maxAmount, minAmount, updatePerc, value)
 
                 if (e.parentElement.id === 'hoursDay') {
                     if (updateContent == hoursADayP) {
-                        updateTotalPoints(timesOf2(parseInt(isSubPoints), parseInt(hoursADayP.textContent)), totalSubPoints, ehp, '+', 'Earned Total Month points (5-minute + click-to-claim)');
+                        updateTotalPoints(timesOf2(parseInt(staticPoints), parseInt(hoursADayP.textContent)), totalSubPoints, ehp, '+', 'Earned Total Month points (5-minute + click-to-claim)');
                         isTruePoints += value;
                     }
                 }
@@ -164,7 +166,7 @@ function buttonRecord(e, updateContent, maxAmount, minAmount, updatePerc, value)
                 
                 if (e.parentElement.id === 'hoursDay') {
                     if (updateContent == hoursADayP) {
-                        updateTotalPoints(timesOf2(parseInt(isSubPoints), parseInt(hoursADayP.textContent)), totalSubPoints, ehp, '+', 'Earned Total Month points (5-minute + click-to-claim)');
+                        updateTotalPoints(timesOf2(parseInt(staticPoints), parseInt(hoursADayP.textContent)), totalSubPoints, ehp, '+', 'Earned Total Month points (5-minute + click-to-claim)');
                         isTruePoints -= value;
                     }
                 }
@@ -184,7 +186,7 @@ function buttonRecord(e, updateContent, maxAmount, minAmount, updatePerc, value)
 }
 
 bodyIncDecHours.addEventListener('click', (e) => {
-    buttonRecord(e.target, hoursADayP, 24, 1, hoursPerc, isSubPoints);
+    buttonRecord(e.target, hoursADayP, 24, 1, hoursPerc, staticPoints);
 });
 
 raidAmounts.addEventListener('click', (e) => {
@@ -239,7 +241,7 @@ function checkBoxListener(selectedItem, event, label, trueMessage, falseMessage,
             }
 
 
-            if (label == subbedLabel) {hoursDefault(); isSubPoints = 19200; isTruePoints = isSubPoints; updatePointsStatus('', points, '', parseInt(points.textContent) - (isTruePoints - 19200)); updateTotalPoints(timesOf2(parseInt(isSubPoints), parseInt(hoursADayP.textContent)), totalSubPoints, ehp, '+', 'Earned Total Month points (5-minute + click-to-claim)');};
+            if (label == subbedLabel) {hoursDefault(); isTruePoints = isSubPoints; updatePointsStatus('', points, '', parseInt(points.textContent) - (isTruePoints - 19200)); updateTotalPoints(timesOf2(parseInt(isSubPoints), parseInt(hoursADayP.textContent)), totalSubPoints, ehp, '+', 'Earned Total Month points (5-minute + click-to-claim)');};
         } else {
 
 
@@ -261,18 +263,46 @@ function checkBoxListener(selectedItem, event, label, trueMessage, falseMessage,
                 updateLabel(totalFollowPoints, 0, isTruePoints, totalFollowPoints, points, '', '', '', lab, msg, 'None');
             }
 
-            if (label == subbedLabel) {hoursDefault(); isSubPoints = 9600; isTruePoints = isSubPoints; updatePointsStatus('', points, '', parseInt(points.textContent) - (isTruePoints - 9600)); updateTotalPoints(timesOf2(parseInt(isSubPoints), parseInt(hoursADayP.textContent)), totalSubPoints, ehp, '+', 'Earned Total Month points (5-minute + click-to-claim)');};
+            if (label == subbedLabel) {hoursDefault(); isTruePoints = isSubPoints; updatePointsStatus('', points, '', parseInt(points.textContent) - (isTruePoints - 9600)); updateTotalPoints(timesOf2(parseInt(isSubPoints), parseInt(hoursADayP.textContent)), totalSubPoints, ehp, '+', 'Earned Total Month points (5-minute + click-to-claim)');};
         }
         
         returnTotal();
     });
 }
 
-checkBoxListener(subbedCheck, 'change', subbedLabel, 'Subscriber', 'Not a Subscriber', isSub, 2, 1);
+//checkBoxListener(subbedCheck, 'change', subbedLabel, 'Subscriber', 'Not a Subscriber', isSub, 2, 1);
 checkBoxListener(monthlySub, 'change', monthlySubLabel, 'Monthly Subscriber', 'Not a Monthly Subscriber', isMonthlySub, 500, 0);
 checkBoxListener(monthlyCheer, 'change', monthlyCheerLabel, 'Monthly Cheer', 'Not a Month Cheer', isMonthlyCheer, 350, 0);
 checkBoxListener(followCheck, 'change', followLabel, 'Follower', 'Not a Follower', isFollower, 300, 0);
 
+
+subBox.addEventListener('change', () => {
+    if (subbedCheck.checked) {
+        isSub = 1;
+        isTruePoints = 9600;
+        staticPoints = 9600;
+    } else if (tierOne.checked) {
+        isSub = 1.2;
+        isTruePoints = 11520;
+        staticPoints = 11520;
+    } else if (tierTwo.checked) {
+        isSub = 1.4;
+        isTruePoints = 13440;
+        staticPoints = 13440;
+    } else if (tierThree.checked) {
+        isSub = 2;
+        isTruePoints = 19200;
+        staticPoints = 19200;
+    }
+
+    hoursPerc.textContent = `${returnPerc(1, 24)}%`;
+    hoursPerc.style.width = `${returnPerc(1, 24)}%`;
+    hoursADayP.textContent = "1";
+    
+    updateTotalPoints(timesOf2(parseInt(isTruePoints), parseInt(hoursADayP.textContent)), totalSubPoints, ehp, '+', 'Earned Total Month points (5-minute + click-to-claim)');
+
+    returnTotal();
+});
 
 
 dailyStreaks.addEventListener('click', (e) => {
